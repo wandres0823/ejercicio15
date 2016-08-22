@@ -36,6 +36,7 @@ public class Ejercicio15 extends javax.swing.JFrame {
         cmbOperacion = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         txtOperacion = new javax.swing.JTextField();
+        cmdBorrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,6 +48,11 @@ public class Ejercicio15 extends javax.swing.JFrame {
         jLabel2.setText("digite la cantidad de valor prestado");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 200, 20));
 
+        txtValorP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtValorPActionPerformed(evt);
+            }
+        });
         txtValorP.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtValorPKeyTyped(evt);
@@ -73,6 +79,14 @@ public class Ejercicio15 extends javax.swing.JFrame {
         });
         jPanel1.add(txtOperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 90, -1));
 
+        cmdBorrar.setText("Borrar");
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,7 +105,7 @@ public class Ejercicio15 extends javax.swing.JFrame {
           char c=evt.getKeyChar(); 
              
          
-          if(!Character.isDigit(c)) { 
+          if(!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar()!='.') { 
               getToolkit().beep(); 
                
               evt.consume(); 
@@ -144,6 +158,18 @@ public class Ejercicio15 extends javax.swing.JFrame {
     
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
+    txtValorP.setText("");
+        txtOperacion.setText("");
+        
+        
+        txtValorP.requestFocusInWindow();
+    }//GEN-LAST:event_cmdBorrarActionPerformed
+
+    private void txtValorPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtValorPActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -181,6 +207,7 @@ public class Ejercicio15 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbOperacion;
+    private javax.swing.JButton cmdBorrar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
